@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: platforms-depl
+spec:
+ replicas: 1
+ selector: 
+  matchLabels:
+   app: platfromservice
+ template: 
+   metadata:
+    labels:
+     app: platfromservice
+   spec:
+    containers: 
+     - name: platfromservice
+       image: ilhambagirov2001/platformservice:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: platforms-clusterip-srv
+spec:
+ type: ClusterIP
+ selector:
+  app: platfromservice
+ ports:
+ - name: platfromservice
+   protocol: TCP
+   port: 80
+   targetPort: 80
+
+   
