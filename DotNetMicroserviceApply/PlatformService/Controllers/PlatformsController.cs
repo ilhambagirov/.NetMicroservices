@@ -16,6 +16,7 @@ namespace PlatformService.Controllers
         private readonly IPlatformRepo repo;
         private readonly IMapper mapper;
         private readonly ICommandDataClient httpDataClient;
+        public int a;
         public PlatformsController(IPlatformRepo repo, IMapper mapper, ICommandDataClient httpDataClient)
         {
             this.repo = repo;
